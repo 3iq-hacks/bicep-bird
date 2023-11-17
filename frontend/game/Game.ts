@@ -116,7 +116,7 @@ export default class Game {
         // First time func called to get frame rate
         if(this.previousTime === null) {
             this.previousTime = currentTime;
-            requestAnimationFrame(this.gameLoop);
+            requestAnimationFrame(num => this.gameLoop(num));
             return;
         }
         this.clearScreen();
@@ -182,6 +182,6 @@ export default class Game {
             this.ctx.fillText("Any key to Restart", 300, 500);
         }
     
-        requestAnimationFrame(this.gameLoop);
+        requestAnimationFrame(num => this.gameLoop(num));
     }
 }
