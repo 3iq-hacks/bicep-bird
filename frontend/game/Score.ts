@@ -1,4 +1,6 @@
-export default class Score {
+import { Tangible } from "./Tangible";
+
+export default class Score implements Tangible {
     ctx: CanvasRenderingContext2D;
     canvas: HTMLCanvasElement;
     scaleRatio: number;

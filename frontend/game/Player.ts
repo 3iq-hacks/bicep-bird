@@ -1,4 +1,6 @@
-export default class Player {
+import { Tangible } from "./Tangible";
+
+export default class Player implements Tangible {
 
     jumpPressed = false;
     jumpInProgress = false;

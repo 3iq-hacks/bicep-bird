@@ -1,4 +1,6 @@
-export default class Fish {
+import { Tangible } from "./Tangible";
+
+export default class Fish implements Tangible {
     ctx: CanvasRenderingContext2D;
     canvas: HTMLCanvasElement;
     gameWidth: number;
@@ -22,7 +24,6 @@ export default class Fish {
         points: number, 
         imageSrc: string
     ) {
-
         this.ctx = ctx;
         this.canvas = ctx.canvas;
         this.gameWidth = gameWidth;
