@@ -1,11 +1,12 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
+import Game from '@/game/Game';
 
 const Canvas: React.FC = () => {
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    const canvasCtxRef = React.useRef<CanvasRenderingContext2D | null>(null);
+    const canvasCtxRef = useRef<CanvasRenderingContext2D | null>(null);
 
     // initialize
     useEffect(() => {
@@ -13,30 +14,14 @@ const Canvas: React.FC = () => {
         if (canvasRef.current) {
             canvasCtxRef.current = canvasRef.current.getContext('2d');
             let ctx = canvasCtxRef.current; // Assigning to a temp variable
-            ctx!.beginPath(); // Note the Non Null Assertion
-            ctx!.arc(95, 50, 40, 0, 2 * Math.PI);
-            ctx!.stroke();
+            if (ctx == null) throw new Error('Could not get context');
+
+            let game = new Game(ctx);
+            game.setScreen();
+            requestAnimationFrame(game.gameLoop.bind(game));
+            window.addEventListener("keydown", game.start.bind(game));
         }
     })
-    
-    // useEffect(() => {
-        
-    //     const canvas = canvasRef.current.getContext('2d')
-    //     if (context == null) throw new Error('Could not get context');
-    //     let frameCount = 0
-    //     let animationFrameId
-        
-    //     const render = () => {
-    //     frameCount++
-    //     draw(context, frameCount)
-    //     animationFrameId = window.requestAnimationFrame(render)
-    //     }
-    //     render()
-        
-    //     return () => {
-    //     window.cancelAnimationFrame(animationFrameId)
-    //     }
-    // }, [draw])
 
     return <canvas ref={canvasRef}></canvas>
 }

@@ -1,8 +1,8 @@
-import Player from "./Player.js";
-import Score from "./Score.js";
-import Fish from "./Fish.js";
-import Time from "./Time.js";
-import { Tangible } from "./Tangible.js";
+import Player from "./Player";
+import Score from "./Score";
+import Fish from "./Fish";
+import Time from "./Time";
+import { Tangible } from "./Tangible";
 
 // Game variables
 const GAME_WIDTH = 700;
