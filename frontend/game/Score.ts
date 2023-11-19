@@ -30,7 +30,7 @@ export default class Score {
     }
 
     draw() {
-        this.ctx.fillStyle = "black";
+        this.ctx.fillStyle = "green";
         const fontSize = 35;
         this.ctx.font = `${fontSize}px serif`;
         this.ctx.fillText(this.score.toString(), this.x, this.y);

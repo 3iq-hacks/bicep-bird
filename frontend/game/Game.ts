@@ -86,7 +86,7 @@ export default class Game {
     }
 
     clearScreen() {
-        this.ctx.fillStyle = "white";
+        this.ctx.fillStyle = "cyan";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
